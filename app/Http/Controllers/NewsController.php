@@ -6,32 +6,87 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    public function index(){
-      $news = ['noticia1','noticia2','noticia3'];
-      return $news;
+    protected $request;
+    public function __construct(Request $request)
+    {
+      dd($request->prm1);
+      $this->request = $request;
+      $this->user = $user;
     }
 
-    public function show($id){
-      return "noticia $id por completo";
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+
     }
 
-    public function create(){
-      return "create";
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 
-    public function edit($id){
-      return "editing $id";
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
     }
 
-    public function store(){
-      return "cadastro de uma nova noticia";
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
-    public function update($id){
-      return "updating $id";
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
-    public function destroy($id){
-      return "destroing $id";
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }

@@ -10,17 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::deçete('/news/{id}', 'NewsController@destroy')->name('news.destroy');
+
+Route::resource('/news','NewsController');
+
+/*
+
+Route::delete('/news/{id}', 'NewsController@destroy')->name('news.destroy');
 
 Route::put('/news/{id}', 'NewsController@update')->name('news.update');
 
 Route::get('/news/{id}/edit','NewsController@edit')->name('news.edit');
 
 Route::get('/news/create',"NewsController@create")->name('news.create');
+*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/contato', function () {
     return view('contat');
 });
