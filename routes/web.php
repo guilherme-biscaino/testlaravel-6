@@ -1,42 +1,74 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+// Rotas de uso comum dos leitores
+Route::get ('/', 'NewsController@index');
 
-Route::resource('/news','NewsController');
-
-/*
-
-Route::delete('/news/{id}', 'NewsController@destroy')->name('news.destroy');
-
-Route::put('/news/{id}', 'NewsController@update')->name('news.update');
-
-Route::get('/news/{id}/edit','NewsController@edit')->name('news.edit');
-
-Route::get('/news/create',"NewsController@create")->name('news.create');
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/contato', function () {
+Route::get('/contato', function(){
     return view('contat');
 });
-Route::get('/news/{id}','NewsController@show')->name('news.show');
 
-Route::get('/news','NewsController@index')->name('news.index');
-
-Route::post('/news','NewsController@store')->name('news.store');
-
-Route::get('/login', function () {
-    return 'login';
+Route::get('/sobre', function(){
+    return view('sobre');
 });
+
+Route::post('/register', function(){
+    return '';
+});
+
+
+// Configuração das rotas de categoria
+
+Route::get('/categorias/{cat}', function($cat){
+  return "as noticias da categoria: {$cat}";
+});
+
+Route::get('/categoria/{cat}/posts', function($cat){
+  return "posts da categoria: {$cat}";
+});
+
+
+// Configuração das rotas de posts
+Route::get('/post/{id}', 'Newscontrolle@show')->name('post.show');
+
+Route::redirect('/redirect', 'https://www.google.com');
+
+
+
+// Rotas administrativas
+Route::group([
+    'middleware' => [],
+    'prefix' => 'admin',
+],
+function()
+{
+  Route::name('admin.')->group(function ()
+  {
+      Route::get('/dashboard', 'NewsControlle@teste')->name('dashboard');
+
+      Route::redirect('/', function(){
+        return redirect()->route('dashboard');
+      })->name('home');
+
+      Route::get('/postagens', 'NewsControlle@teste')->name('postagens');
+
+// Manejamento de posts
+/*
+      Route::get('/post/create', 'NewsControlle@create')->name('post.create');
+
+      Route::get('/post/{id}/preview', 'NewsControlle@teste')->name('preview');
+
+      Route::get('/post/{id}/edit', 'Newscontrolle@edit')->name('post.edit');
+
+      Route::post('/post/store', 'Newscontrolle@store')->name('post.store');
+
+      Route::put('/post/{id}', 'Newscontrolle@update')->name('post.update');
+
+      Route::delete('/post/{id}', 'Newscontrolle@destroy')->name('post.destroy');
+*/
+      Route::resource('posts', 'Newscontroller');
+    });
+});
+
+Route::get('/login', function(){
+  return 'pagina de login';
+})->name('login');

@@ -6,12 +6,14 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
+
     protected $request;
     public function __construct(Request $request)
     {
-      dd($request->prm1);
-      $this->request = $request;
-      $this->user = $user;
+        $this->request = $request;
+        $this->middleware('auth')->only([
+          'create','store', 'edit', 'destroy', 'update'
+        ]);
     }
 
     /**
@@ -21,7 +23,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-
+      $teste = 123;
+      return view('admin.pages.news.index', compact('teste'));
     }
 
     /**
@@ -53,7 +56,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+      return 'info produto {$id}';
     }
 
     /**

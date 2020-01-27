@@ -4,34 +4,46 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class NewsControlle extends Controller
 {
-    public function index(){
+    public function index()
+    {
       $news = ['noticia1','noticia2','noticia3'];
       return $news;
     }
 
-    public function show($id){
+    public function show($id)
+    {
       return "noticia $id por completo";
     }
 
-    public function create(){
+    public function create()
+    {
       return "create";
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
       return "editing $id";
     }
 
-    public function store(){
+    public function store()
+    {
       return "cadastro de uma nova noticia";
     }
 
-    public function update($id){
+    public function update($id)
+    {
       return "updating $id";
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
       return "destroing $id";
+    }
+
+    public function teste()
+    {
+      return "teste";
     }
 }
