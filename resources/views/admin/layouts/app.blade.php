@@ -3,11 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Admin page</title>
-    <style media="screen">
-      body{
-        color: red;
-      }
-    </style>
+    <link rel="stylesheet" href="/css/maincss.css">
   </head>
   <body>
     <nav>
@@ -19,7 +15,7 @@
     </nav>
 
     <center>
-      <div class="container">
+      <div id="container">
 
         <h2>alou alou</h2>
         @yield('content')
