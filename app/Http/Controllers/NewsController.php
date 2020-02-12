@@ -23,9 +23,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-      $teste = 123;
-      return view('admin.pages.news.index', compact('teste'));
+      return view('admin.pages.news.indexsample');
     }
+
 
     /**
      * Show the form for creating a new resource.

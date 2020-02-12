@@ -3,18 +3,13 @@
 // Rotas de uso comum dos leitores
 Route::get ('/', 'NewsController@index');
 
-Route::get('/contato', function(){
-    return view('contat');
-});
-
-Route::get('/sobre', function(){
-    return view('sobre');
-});
+Route::get('/contato','PageControlle@contato');
 
 Route::post('/register', function(){
     return '';
 });
 
+Route::get('/about', 'PageControlle@about');
 
 // Configuração das rotas de categoria
 
@@ -28,7 +23,7 @@ Route::get('/categoria/{cat}/posts', function($cat){
 
 
 // Configuração das rotas de posts
-Route::get('/post/{id}', 'Newscontrolle@show')->name('post.show');
+Route::get('/post/{id}', 'Newscontroller@show')->name('post.show');
 
 Route::redirect('/redirect', 'https://www.google.com');
 
@@ -43,13 +38,13 @@ function()
 {
   Route::name('admin.')->group(function ()
   {
-      Route::get('/dashboard', 'NewsControlle@teste')->name('dashboard');
+      Route::get('/dashboard', 'NewsController@teste')->name('dashboard');
 
       Route::redirect('/', function(){
         return redirect()->route('dashboard');
       })->name('home');
 
-      Route::get('/postagens', 'NewsControlle@teste')->name('postagens');
+      Route::get('/postagens', 'NewsController@teste')->name('postagens');
 
 // Manejamento de posts
 /*
