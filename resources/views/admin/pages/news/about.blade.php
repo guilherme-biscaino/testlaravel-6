@@ -11,3 +11,4 @@
     </div>
 
 @endsection
+@section('title', '| Sobre nós')

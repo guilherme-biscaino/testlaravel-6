@@ -15,4 +15,7 @@ class PageControlle extends Controller
   {
     return view('admin.pages.news.contato');
   }
+  public function index(){
+    return view('admin.pages.news.indexsample');
+  }
 }

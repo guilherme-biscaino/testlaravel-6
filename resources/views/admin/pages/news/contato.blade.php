@@ -23,5 +23,7 @@
           </form>
         </div>
       </div>
-
+      
 @endsection
+
+@section('title', '| Contato')
