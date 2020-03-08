@@ -25,7 +25,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-      return view('admin.pages.news.indexsample');
+      $posts = Post::all();
+      return view('admin.pages.news.index')->withPosts($posts);
     }
 
 
@@ -76,7 +77,8 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-      return view(posts.show);
+      $post = Post::find($id);
+      return view("admin.pages.posts.show")->withPost($post);
     }
 
     /**

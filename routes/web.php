@@ -15,6 +15,6 @@ Route::group(['middleware' => ['web']], function(){
   // rotas do http post
   Route::resource('posts', 'NewsController');
   Route::get('/create', 'NewsController@create');
-  
+
 }
 );
