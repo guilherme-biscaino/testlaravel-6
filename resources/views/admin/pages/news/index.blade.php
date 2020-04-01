@@ -45,11 +45,15 @@
                 </td>
               </tr>
             @endforeach
-
           </tbody>
         </table>
+        <hr>
+        <div class="d-flex justify-content-center">
+          {!!$posts->links();!!}
+
+        </div>
       </div>
     </div>
-<hr>
+
 
 @stop

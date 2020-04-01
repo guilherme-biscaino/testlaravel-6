@@ -25,8 +25,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
+      $posts = Post::orderBy('id', 'desc')->paginate(5);
       return view('admin.pages.news.index')->withPosts($posts);
+
     }
 
 
@@ -63,7 +64,7 @@ class NewsController extends Controller
         $post->autor = $request->autor;
         $post->save();
 
-        Session::flash('success', 'seu post foi enviado!');
+        Session::flash('success', 'your posts was successfully saved');
 
         return redirect()->route('posts.show', $post->id);
 
@@ -127,6 +128,13 @@ class NewsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+
+      
+        Session::flash('success', 'this post has been deleted.');
+
+        return redirect()->route('posts.index');
     }
 }

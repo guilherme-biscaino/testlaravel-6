@@ -1,7 +1,7 @@
 @if (Session::has('success'))
 
   <div class="alert alert-success" role="alert">
-    <strong>Sucesso:</strong>o post foi feito com sucesso
+    <strong>Success:</strong> {{Session::get('success')}}
   </div>
 
 @endif
